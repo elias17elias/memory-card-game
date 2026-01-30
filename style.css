@@ -2,7 +2,7 @@ body {
     font-family: sans-serif;
 }
 .container {
-    width: 500px;
+    width: 400px;
     margin:150px auto;
     position: relative;
     overflow: hidden;
@@ -98,4 +98,5 @@ button {
     font-weight: bold;
     transform: translateY(100%);
     transition: 1s;
+
 }
