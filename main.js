@@ -42,7 +42,7 @@ function startGame() {
         for (let i = 0; i < cards.length; i++) {
             cards[i].onclick = function () {
                 if (this.classList.contains("done")) return; //prevent flip if it's done
-
+                if (lock) return;
                 this.classList.toggle("flipped"); //flip
                 const flipped = document.querySelectorAll(".flipped");
                 const backOfFlipped = document.querySelectorAll(".flipped .back");
