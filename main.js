@@ -5,7 +5,7 @@ const cards = document.querySelectorAll(".card");
 const cardHolders = document.querySelectorAll(".card-holder");
 let timerId;
 const startButton = document.querySelector(".start");
-
+let lock = false;
 // start
 startButton.onclick = startGame;
 
@@ -46,7 +46,8 @@ function startGame() {
                 this.classList.toggle("flipped"); //flip
                 const flipped = document.querySelectorAll(".flipped");
                 const backOfFlipped = document.querySelectorAll(".flipped .back");
-                if (flipped.length == 2) {
+                if (flipped.length < 2) return;
+                lock = true;
                     //check the colors
                     if (backOfFlipped[0].style.backgroundColor === backOfFlipped[1].style.backgroundColor) { 
                         // same => done
@@ -57,8 +58,9 @@ function startGame() {
                     setTimeout(function () {
                         flipped[1].classList.remove("flipped");
                         flipped[0].classList.remove("flipped");
+                        lock = false;
                     }, 500);
-                }
+                
 
                 // end of game
                 if (document.querySelectorAll(".done").length === cards.length) {
